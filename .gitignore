@@ -3,3 +3,6 @@ venv/
 
 #숨김파일
 .DS_Store
+
+#캐시파일
+__pycache__
