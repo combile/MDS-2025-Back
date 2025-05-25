@@ -11,6 +11,15 @@ python -m venv venv
 source venv/bin/activate
 ```
 
+> 서버 가동 (app 디렉토리에서 실행)
+```
+uvicorn main:app --realod
+```
+> 의존성 명세 파일 내보내기
+```
+pip freeze > requirements.txt
+```
+
 ## Commit Convention
 
 `Feat(component, ui) : 버튼 컴포넌트 ui 구현`
