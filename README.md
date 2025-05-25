@@ -1,19 +1,19 @@
 # MDS-2025-Back
-HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
-
-> 가상환경 생성
+> HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
+#
+## 가상환경 생성
 ```
 python -m venv venv
 ```
 
-> 가상환경 구동
+## 가상환경 구동
 ```
 source venv/bin/activate
 ```
 
-> 의존성 패키지 설치
+#3 의존성 패키지 설치
 ```
-python -r install requirments.txt
+python -r install requirements.txt
 ```
 
 ## Commit Convention
