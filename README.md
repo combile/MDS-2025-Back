@@ -1,16 +1,17 @@
 # MDS-2025-Back
-HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
-
-> 가상환경 생성
+> HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
+#
+## 가상환경 생성
 ```
 python -m venv venv
 ```
 
-> 가상환경 구동
+## 가상환경 구동
 ```
 source venv/bin/activate
 ```
 
+<<<<<<< HEAD
 > 서버 가동 (app 디렉토리에서 실행)
 ```
 uvicorn main:app --realod
@@ -18,6 +19,11 @@ uvicorn main:app --realod
 > 의존성 명세 파일 내보내기
 ```
 pip freeze > requirements.txt
+=======
+#3 의존성 패키지 설치
+```
+python -r install requirements.txt
+>>>>>>> aa05f11 (Update README.md)
 ```
 
 ## Commit Convention
