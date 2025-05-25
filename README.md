@@ -11,6 +11,11 @@ python -m venv venv
 source venv/bin/activate
 ```
 
+> 의존성 패키지 설치
+```
+python -r install requirments.txt
+```
+
 ## Commit Convention
 
 `Feat(component, ui) : 버튼 컴포넌트 ui 구현`
