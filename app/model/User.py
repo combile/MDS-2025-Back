@@ -13,7 +13,7 @@ class User(Base):
     phone = Column(String)
     email = Column(String)
     profile_photo = Column(String)
-    consent = Column(Boolean)
+    consent = Column(Boolean, server_default="false") #FIXME: default 값 추후 재지정 필요
     role = Column(String)
     
     # Relationship: - total 4
