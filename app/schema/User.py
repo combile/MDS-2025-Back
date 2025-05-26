@@ -1,6 +1,19 @@
 from pydantic import BaseModel, EmailStr, root_validator
 
-
+class User(BaseModel):
+    user_name: str
+    student_id: str
+    id: str
+    password: str
+    department: str
+    email: EmailStr
+    phone_number: str
+    role: str
+    profile_photo: str | None #Optional[str]과 동일 / NULL 허용
+    
+    class Config:
+        orm_mode = True #SQLAlchemy 모델과 호환 가능하게 설정
+        
 
 class UserSignUp(BaseModel):
     user_name: str

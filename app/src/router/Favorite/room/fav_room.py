@@ -15,13 +15,12 @@ async def custom_http_exception_handler(
 ):
     return JSONResponse(
         status_code=exc.status_code,
-        content={"message": exc.detail}
+        content={"error": exc.detail}
     )
 
 #즐겨찾기 추가
 @app.post("/api/favorite/rooms")
 async def add_favorite_room(
-    building_id: str,
     request: FavoriteRoomRequest,
     db: Session = Depends(get_db)
 ):
@@ -30,7 +29,7 @@ async def add_favorite_room(
     favorite_room = FavoriteRoomModel(
         student_id = request.student_id,
         room_id = request.room_id,
-        building_id = building_id
+        building_id = request.building_id
     )
     
     #DB 추가

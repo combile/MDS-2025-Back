@@ -8,8 +8,8 @@ from app.database import get_db
 
 app = APIRouter()
 
-@app.excption_handler(HTTPException)
-async def custom_http_exception_handeler(request: FastAPIRequest, exc: HTTPException):
+@app.exception_handler(HTTPException)
+async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPException):
     return JSONResponse(
         status_code=exc.status_code,
         content={"error":exc.detail}

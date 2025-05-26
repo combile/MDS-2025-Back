@@ -24,7 +24,7 @@ async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPExcept
 @app.post("/api/users/signup")
 async def sign_up(request : UserSignUp, db: Session=Depends(get_db)):
     
-    if db.query(User).filter((User.id == request.id) | (User.student_id == request.student_id)).firts():
+    if db.query(User).filter((User.id == request.id) | (User.student_id == request.student_id)).first():
         raise HTTPException(
             status_code = 409,
             detail="User already exists"
@@ -35,7 +35,7 @@ async def sign_up(request : UserSignUp, db: Session=Depends(get_db)):
     new_user = User(
         student_id=request.student_id,
         id=request.id,
-        password = request.pasword, #FIXME: 해싱처리 필요
+        password = request.password, #FIXME: 해싱처리 필요
         department=request.department,
         phone=request.phone_number,
         email=request.email,

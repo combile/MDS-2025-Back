@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.responses import JSONResponse
 from fastapi.requests import Request as FastAPIRequest
-from app.database import get_db
 from app.schema.Favorite import FavoriteBuildingRequest
+from app.database import get_db
 from app.model.FavoriteBuilding import FavoriteBuilding
 
 
@@ -17,7 +17,7 @@ async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPExcept
         content={"error":exc.detail}
     )
     
-@app.post("api/favorite/buildings/{building_id}")
+@app.post("/api/favorite/buildings/{building_id}")
 async def add_favorite_building(
     building_id: str,
     request: FavoriteBuildingRequest,
@@ -25,8 +25,8 @@ async def add_favorite_building(
 ):
     
     favorite = FavoriteBuilding(
-        studdent_id=request.student_id,
-        buildibg_id=request.building_id,
+        student_id=request.student_id,
+        building_id=request.building_id,
     )
     
     db.add(favorite)

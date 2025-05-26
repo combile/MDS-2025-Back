@@ -3,8 +3,8 @@ from fastapi.responses import JSONResponse
 from fastapi.requests import Request as FastAPIRequest
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.model import User #SQLAlchemy 모델
-from app.schema.User import UserProfile #pydantic 모델
+from app.model.User import User #SQLAlchemy 모델
+from app.schema.User import UserProfile
 
 app = APIRouter()
 
@@ -19,7 +19,7 @@ async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPExcept
 @app.get("/api/users/{student_id}")
 async def get_user_profile(student_id: str, db: Session=Depends(get_db)):
     
-    user = db.query(User).filter(User.student_id == student_id).firts()
+    user = db.query(User).filter(User.student_id == student_id).first()
     
     if not user:
         raise HTTPException(

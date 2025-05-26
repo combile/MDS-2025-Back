@@ -18,15 +18,14 @@ async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPExcept
     
 @app.delete("/api/favorite/rooms/{room_id}")
 async def remove_favorite_room(
-    room_id: str,
     request: FavoriteRoomRequest,
     db: Session = Depends(get_db)
 ):
     
     favorite = db.query(FavoriteRoomModel).filter_by(
         student_id = request.student_id,
-        room_id = room_id
-    )
+        room_id = request.room_id
+    ).first()
     
     if not favorite:
         raise HTTPException(

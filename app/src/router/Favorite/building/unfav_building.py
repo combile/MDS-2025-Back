@@ -18,13 +18,12 @@ async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPExcept
     
 @app.delete("/api/favorite/buildings/{building_id}")
 async def remove_favorite_building(
-    buildiing_id: str,
     request: FavoriteBuildingRequest,
     db: Session = Depends(get_db)
 ):
     favorite = db.query(FavoriteBuilding).filter_by(
         student_id=request.student_id,
-        buildiing_id=request.building_id
+        building_id=request.building_id
     ).first()
     
     if not favorite:
@@ -36,4 +35,4 @@ async def remove_favorite_building(
     db.delete(favorite)
     db.commit()
     
-    return {"message":"Buildig removed from favorites"}
+    return {"message":"Building removed from favorites"}
