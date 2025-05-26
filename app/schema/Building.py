@@ -6,4 +6,7 @@ class Building(BaseModel):
     name: str
     is_available: bool = False #기본값 설치
     
+    #SQLAlchemy 모델 직렬화 허용
+    class Config:
+        orm_mode = True
     
