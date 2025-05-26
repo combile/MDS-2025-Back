@@ -1,6 +1,7 @@
 # MDS-2025-Back
 > HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
 
+
 ## 가상환경 생성
 ```
 python -m venv venv
@@ -21,7 +22,6 @@ pip freeze > requirements.txt
 ```
 
 ## 의존성 패키지 설치
-
 ```
 python -r install requirements.txt
 ```
