@@ -7,12 +7,13 @@ class User(Base):
     __tablename__ = "User"
     
     student_id = Column(String, primary_key=True, nullable=False)
+    name = Column(String, nullable=False) #FIXME: DB에 컬럼 생성 필요
     id = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
     department = Column(String)
     phone = Column(String)
     email = Column(String)
-    profile_photo = Column(String)
+    profile_photo = Column(String, serval_default=None) #FIXME: NULL 허용 / DB에 NULL로 기본값 지정 필요
     consent = Column(Boolean, server_default="false") #FIXME: default 값 추후 재지정 필요
     role = Column(String)
     
