@@ -1,6 +1,7 @@
 # MDS-2025-Back
 > HBNU SW 2025 다학제 캡스톤 백엔드 작업 공간
-#
+
+
 ## 가상환경 생성
 ```
 python -m venv venv
@@ -11,7 +12,16 @@ python -m venv venv
 source venv/bin/activate
 ```
 
-#3 의존성 패키지 설치
+## 서버 가동 (app 디렉토리에서 실행)
+```
+uvicorn main:app --realod
+```
+## 의존성 명세 파일 내보내기
+```
+pip freeze > requirements.txt
+```
+
+## 의존성 패키지 설치
 ```
 python -r install requirements.txt
 ```
