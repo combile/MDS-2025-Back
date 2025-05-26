@@ -8,11 +8,13 @@ class UserSignUp(BaseModel):
     id: str
     password: str
     password_check: str #NOTE: DB 저장 X , 검증용으로만 사용
+    department: str
     email: EmailStr
     phone_number: str
     role: str
     profile_photo: str | None
     
+    #비밀번호 검증 로직 바로 실행됨
     @root_validator()
     def check_password_match(cls, values):
         pw = values.get("password")
