@@ -4,8 +4,10 @@ from sqlalchemy.sql import func
 from app.database import Base
 
 class RoomCondition(Base):
+    __tablename__ = "RoomCondition"
+    
     condition_id = Column(String, primary_key=True)
-    roomt_id = Column(String, ForeignKey("Room.room_id"), nullable=False)
+    room_id = Column(String, ForeignKey("Room.room_id"), nullable=False)
     measured_at = Column(DateTime, server_default=func.now(),onupdate=func.now(),nullable=False)
     temperature = Column(Float)
     humidity = Column(Float)
@@ -13,6 +15,19 @@ class RoomCondition(Base):
     pm25 = Column(Float)
     co2 = Column(Float)
     
-    room_condition_with_log = relationship("AbnormalDataLog", back_populates="log_with_condition")
-    room_condition_with_comment = relationship("AiComment", back_populates="comment_with_condition")
+    #Relationship - total 4
+    roomcondition_log_room = relationship("Room", secondary="AbnormalDataLog", back_populates="room_log_roomcondition")
+    roomcondition_with_log = relationship("AbnormalDataLog", back_populates="log_with_roomcondition") #join table
+    
+    roomcondition_with_room = relationship("Room", back_populates="room_with_roomcondition")
+    
+    roomcondition_with_comment = relationship("AiComment", back_populates="comment_with_roomcondition")
+    
+    roomcondition_currentfeedback_user = relationship("User", secondary="CurrentFeedback", back_populates="user_currentfeedback_roomcondition")
+    roomcondition_with_currentfeedback = relationship("CurrentFeedBack", back_populates="currentfeedback_with_roomcondition") #join table
+    
+    
+    
+    
+    
     
