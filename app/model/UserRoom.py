@@ -2,7 +2,8 @@ from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
-
+# from app.model.User import User
+# from app.model.Room import Room
 
 
 class UserRoom(Base):

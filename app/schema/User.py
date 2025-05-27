@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, root_validator
+from pydantic import BaseModel, EmailStr, model_validator
 
 class User(BaseModel):
     user_name: str
@@ -12,7 +12,7 @@ class User(BaseModel):
     profile_photo: str | None #Optional[str]과 동일 / NULL 허용
     
     class Config:
-        orm_mode = True #SQLAlchemy 모델과 호환 가능하게 설정
+        from_attributes = True #SQLAlchemy 모델과 호환 가능하게 설정
         
 
 class UserSignUp(BaseModel):
@@ -28,7 +28,7 @@ class UserSignUp(BaseModel):
     profile_photo: str | None
     
     #비밀번호 검증 로직 바로 실행됨
-    @root_validator()
+    @model_validator(mode="after")
     def check_password_match(cls, values):
         pw = values.get("password")
         pw_check = values.get("password_check")

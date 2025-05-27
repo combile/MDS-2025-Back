@@ -8,5 +8,5 @@ class Building(BaseModel):
     
     #SQLAlchemy 모델 직렬화 허용
     class Config:
-        orm_mode = True
+        from_attributes = True
     

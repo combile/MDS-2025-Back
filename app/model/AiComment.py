@@ -2,6 +2,7 @@ from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
+# from app.model.RoomCondition import RoomCondition
 
 class AiComment(Base):
     __tablename__ = "AiComment"

@@ -1,7 +1,8 @@
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-
 from app.database import Base
+# from app.model.User import User
+# from app.model.Room import Room
 
 
 class FavoriteRoom(Base):

@@ -8,15 +8,6 @@ from fastapi.requests import Request as FastAPIRequest
 
 app = APIRouter()
 
-@app.exception_handler(HTTPException)
-async def custom_http_exception_handler(
-    request: FastAPIRequest,
-    exc: HTTPException
-):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"error": exc.detail}
-    )
 
 #즐겨찾기 추가
 @app.post("/api/favorite/rooms")

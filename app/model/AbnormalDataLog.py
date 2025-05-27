@@ -1,6 +1,8 @@
 from sqlalchemy import Column, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
+# from app.model.RoomCondition import RoomCondition
+# from app.model.Room import Room
 
 class AbnormalDataLog(Base):
     __tablename__ = "AbnormalDataLog"

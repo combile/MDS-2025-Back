@@ -2,7 +2,11 @@ from sqlalchemy import Column, String, ForeignKey, DateTime, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from app.database import Base
-
+# from app.model.Room import Room
+# from app.model.AiComment import AiComment
+# from app.model.AbnormalDataLog import AbnormalDataLog
+# from app.model.CurrentFeedBack import CurrentFeedBack
+# from app.model.User import User
 class RoomCondition(Base):
     __tablename__ = "RoomCondition"
     

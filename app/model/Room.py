@@ -1,7 +1,12 @@
-from sqlalchemy import Column, String, Boolean, Integer, Enum, ForeignKey
+from sqlalchemy import Column, String, Boolean, Integer, Enum as SQLEnum, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 from enum import Enum
+# from app.model.User import User
+# from app.model.UserRoom import UserRoom
+# from app.model.RoomCondition import RoomCondition
+# from app.model.AbnormalDataLog import AbnormalDataLog
+# from app.model.Building import Building
 
 class Status(str, Enum):
     bad = "bad"
@@ -17,7 +22,7 @@ class Room(Base):
     name = Column(String)
     floor = Column(Integer)
     is_available = Column(Boolean, server_default="false") #NOTE: SQL에서 "false"로 표기
-    status = Column(Enum(Status, name="status_enum", create_type=False))
+    status = Column(SQLEnum(Status, name="status_enum", create_type=False))
     
     #Relationship - total 5
     #Room <-> User 조인 테이블이 2개임

@@ -1,6 +1,13 @@
 from sqlalchemy import Column, String, Boolean
 from sqlalchemy.orm import relationship
 from app.database import Base
+# from app.model.Building import Building
+# from app.model.FavoriteBuilding import FavoriteBuilding
+# from app.model.Room import Room
+# from app.model.FavoriteRoom import FavoriteRoom
+# from app.model.UserRoom import UserRoom
+# from app.model.CurrentFeedBack import CurrentFeedBack
+# from app.model.RoomCondition import RoomCondition
 
 
 class User(Base):
@@ -13,7 +20,7 @@ class User(Base):
     department = Column(String)
     phone = Column(String)
     email = Column(String)
-    profile_photo = Column(String, serval_default=None) #FIXME: NULL 허용 / DB에 NULL로 기본값 지정 필요
+    profile_photo = Column(String, server_default=None) #FIXME: NULL 허용 / DB에 NULL로 기본값 지정 필요
     consent = Column(Boolean, server_default="false") #FIXME: default 값 추후 재지정 필요
     role = Column(String)
     

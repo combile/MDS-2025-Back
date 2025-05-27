@@ -1,6 +1,9 @@
 from sqlalchemy import Column, String, Boolean
 from sqlalchemy.orm import relationship
 from app.database import Base
+# from app.model.User import User
+# from app.model.FavoriteBuilding import FavoriteBuilding 
+# from app.model.Room import Room 
 
 
 class Building(Base):

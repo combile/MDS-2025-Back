@@ -11,13 +11,6 @@ from app.schema.User import UserSignUp
 app = APIRouter()
 
 
-#MARK: - 커스텀 예외 핸들러
-@app.exception_handler(HTTPException)
-async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPException):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"error": exc.detail}
-    )
 
 
 

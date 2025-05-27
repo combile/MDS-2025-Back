@@ -7,4 +7,4 @@ class Room(BaseModel):
     is_available: bool = False
     
     class Config:
-        orm_mode = True
+        from_attributes = True

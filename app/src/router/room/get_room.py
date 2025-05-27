@@ -8,12 +8,6 @@ from app.database import get_db
 
 app = APIRouter()
 
-@app.exception_handler(HTTPException)
-async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPException):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"error":exc.detail}
-    )
 
 @app.get("/api/rooms/{room_id}")
 async def get_room(room_id: str, db: Session = Depends(get_db)):

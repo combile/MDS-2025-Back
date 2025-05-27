@@ -9,14 +9,7 @@ from app.model.Building import Building as BuildingModel #SQLAlchemy 모델 임�
 
 app = APIRouter()
 
-#MARK: - 커스텀 예외 핸들러
-@app.exception_handler(HTTPException)
-async def custom_http_exception_handler(request: FastAPIRequest, exc: HTTPException):
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"error": exc.detail}
-    )
-    
+
     
 @app.get("/api/buildings")
 async def get_building(db: Session = Depends(get_db)):
